@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant A as Articles Service
+    participant R as RabbitMQ
+    participant S as Subscriptions Service
+    participant N as Notifications Service
+
+%% Створення статті та публікація події
+    A->>R: Публікує подію article.created
+    R->>S: Передає подію article.created
+
+%% Обробка події підписок
+    S->>R: Публікує подію subscription.notification
+    R->>N: Передає подію subscription.notification
+
