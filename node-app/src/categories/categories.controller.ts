@@ -16,7 +16,7 @@ import { RoleMatchingMode } from 'nest-keycloak-connect';
 export class CategoriesController {
     constructor(
         private readonly categoriesService: CategoriesService,
-        private readonly productsService: ProductsService, // Інжектни ProductsService
+        private readonly productsService: ProductsService,
     ) {}
     @Get('')
     @Roles({ roles: ['ProductsApiViewer'], resource: 'realm', mode: RoleMatchingMode.ANY } as any)
